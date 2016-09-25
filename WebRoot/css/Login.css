@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+div{ border:0px solid gray;}
+a{ color:#333; font-size:12px; text-decoration:none;}
+a:hover{ color:#F00;}
+input:hover{ color:#FFF; }
+
+.top1_div1{ width:1200px; height:800px; margin:0 auto; }
+
+.top1_div2{ width:1200px; height:80px; float:left; line-height:80px;}
+	.top1_font1{ font-size:30px; font-weight:bolder; color:#333; float:left; margin-left:0px;}
+	.top1_font2{ float:right; margin-right:20px; margin-top:20px;}
+
+.top2_div3{ background-image:url(../images/login/login-background.jpg); width:1200px;
+	height:620px; float:left;}
+.top2_table{ margin-top:150px; margin-left:100px; width:290px; background-color:#E6E6E6;}
+.top2_td1{ height:40px; background-color:#CB0D03; text-align:center; line-height:40px;
+	font-size:24px; color:#FFF; font-weight:bold;}
+.top2_td2{ height:20px;}
+.top2_td3{ text-align:center; height:45px; line-height:45px; }
+.top2_text1{ width:210px; height:30px; font-size:16px; color:#999;}
+
+.top2_text3{ height:35px; width:250px; font-size:20px; background-color:#CB0D03;
+	color:#FFF; font-weight:bold; cursor:pointer; }
+
+.bottom_div{ width:1200px; height:70px;}
+	.bottom_td{ width:1198px; height:20px; color:#666; font-size:14px; text-align:center;
+		line-height:20px;}
+
+

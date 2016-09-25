@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.div_middle{ width:1200px; margin-left:70px;}
+
+.img_logo{ margin:10px; }
+.top1_div{ height:80px; width:120px; text-align:center; line-height:80px; 
+		font-size:26px; font-weight:bolder; }
+		
+
+.top2_div{ width:1200px; height:50px; background-color:#178BFF; }
+.top2_table{ height:50px; width:600px; text-align:center; line-height:48px; 
+		font-size:16px; font-weight:bolder; color:#FFF; }
+.top2_table td a{  color:#FFF; text-decoration:none; }
+.top2_table td a:hover{  color:#FFF; text-decoration:none; }
+
+
+.top3_div{ margin-top:20px; width:1200px; height:800px; }
+.top3_divleft{ border:0px solid gray; width:200px; height:500px; float:left; }
+	.top3_lefttable{ width:198px; height:500px; border-bottom:#E1E1E1; border-top:#E1E1E1;
+			border-left:#E1E1E1; border-right:#c2c2c2; border:groove; }
+	.top3_tableTd1{ font-size:14px; background-color:#E1E1E1; padding-left:10px; }	
+	.top3_tableTd2{ padding:10px; }
+	.top3_table2{ }
+	.top3_table2 table{ border:0px solid gray; }
+	.top3_table2 table tr{ font-size:10px; color:#535353; height:22px; }
+	.top3_table2 table th{ font-size:13px; text-align:left; line-height:22px; }
+	.top3_table2 table th img{ width:22px; height:22px; line-height:22px; float:left;
+			margin-right:10px; }
+	.top3_table2 table tr td{ width:80px; }
+	.top3_table2 table tr td a{ color:#535353; text-decoration:none; }
+	.top3_table2 table tr td a:hover{ color:#aa2116; }
+	.top3_table2 hr{ border-color:#E1E1E1;}	
+		
+.top3_divright{ border:1px solid gray; width:980px; height:800px; float:right; }
+
+
+.top4{ width:1200px; height:150px; }
+.top4_div{ width:1200px; height:100px; background-color:#E8E8E8; margin-top:30px; }
+	.top4_table1{}
+		.top4_table1 tr{ height:30px; font-size:12px; color:black;}
+		.top4_table1 tr td{ padding-right:20px; }
+		
+	.top4_table2{}
+	.top4_table2 tr{ height:30px; font-size:12px; color:black;}
+		.top4_table2 tr td{ padding-right:10px; }
+		
+.top4_div2{ width:1200px; height:50px; text-align:center; line-height:40px; font-size:12px;
+	    color:#747474; }

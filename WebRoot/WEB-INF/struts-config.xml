@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+
+	<form-beans>
+	<form-bean name="customerForm" type="com.htl.web.forms.customerForm" />
+	</form-beans>
+	
+	<action-mappings>
+	<!-- Login -->
+	<action path="/login" parameter="flag" >
+		<forward name="ok" path="/WEB-INF/mainframe/MainFrame.jsp"/>
+		<forward name="err" path="/Login.jsp"/>	
+	</action>
+	<!-- 注册 -->
+	<action path="/customer" parameter="flag" name="customerForm">
+		<forward name="ok" path="/Register/ok.jsp"></forward>
+		<forward name="err" path="/Register/err.jsp"></forward>
+	</action>
+	<!-- 主页面导航栏，页面跳转 -->
+	<action path="/main" parameter="flag">
+		<forward name="mainframe" path="/WEB-INF/mainframe/MainFrame.jsp"></forward>
+		<forward name="myShoppingCart" path=""></forward>
+		<forward name="Myaccount" path=""></forward>
+		<forward name="Shop" path="/WEB-INF/shopCenter/MainShopCenter.jsp"></forward>
+		<forward name="yourService" path=""></forward>
+	</action>
+	<!-- 商家中心导航栏，页面跳转 -->
+	<action path="/mainShopCenter" parameter="flag">
+		<forward name="mainframe" path="/WEB-INF/shopCenter/MainShopCenter.jsp"></forward>
+		<forward name="ruleCenter" path=""></forward>
+		<forward name="safetyCenter" path=""></forward>
+		<forward name="serviceCenter" path=""></forward>
+		<forward name="shopBBS" path=""></forward>
+		<forward name="shopFeedback" path=""></forward>
+		<forward name="employeeManager" path="/WEB-INF/shopCenter/managerShop/EmployeeManager.jsp"></forward>
+	</action>
+	<!-- 商家中心左侧导航栏之宝贝管理，页面跳转 -->
+	<action path="/managerProduct" parameter="flag" >
+		<forward name="productManager" path="/WEB-INF/shopCenter/managerProduct/ProductManager.jsp"></forward>
+		<forward name="storageManager" path="/WEB-INF/shopCenter/managerProduct/StorageManager.jsp"></forward>
+	</action>
+	</action-mappings>
+	
+	<!-- 配置全局跳转 -->
+	<global-forwards>
+	<forward name="opererr" path="/WEB-INF/err.jsp" />
+	<forward name="operok" path="/WEB-INF/ok.jsp" />
+	</global-forwards>
+	
+	<!-- 配置代理请求处理 DelegatingRequestProcessor ,那么接收到请求后，会去Spring容器中找/login -->
+	<controller>
+ 	<set-property property="processorClass" value="org.springframework.web.struts.DelegatingRequestProcessor"/>
+	</controller>
+	
+	
+</struts-config>

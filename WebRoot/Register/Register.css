@@ -1,0 +1,29 @@
+@charset "gbk";
+/* CSS Document */
+
+body{ width:1200px; margin:0 auto;}
+a{ color:#F00; font-size:14px; text-decoration:none;}
+a:hover{ color:#F00; text-decoration:underline;}
+input{ height:25px; width:150px; font-size:18px;}
+
+
+.div_top1{ height:30px; background-color:#E8E8E8;}
+	
+	.div_top11{ float:right; font-size:14px; margin-right:150px; margin-top:5px; }
+
+.div_middle{ width:1200px; height:440px; margin-top:30px; text-align:center; border:1px solid gray; }
+
+.tbble_top2{ width:1000px; height:300px; margin-left:100px; margin-top:50px;
+			 text-align:center; }
+	.top2_tr1{ height:50px; background-color:#BB1511; font-size:20px; color:#FFF;
+			font-weight:bold;}
+	.top2_tr2{ height:240px; text-align:center;}
+	.top2_table1{ margin-left:10px; height:180px; width:300px;
+			 background-color:#C1C1C1;}
+	#chexkNumber{ width:70px;}
+	#chexkNumber2{ width:70px;}
+	#Sex_input{ width:30px;}
+	
+	
+	
+	.top2_tr3{ height:40px; text-align:center;}

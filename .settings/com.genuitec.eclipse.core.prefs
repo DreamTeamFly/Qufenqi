@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/WEB-INF/struts-config.xml,WebRoot/WEB-INF/shopCenter/js/jquery-1.11.1.min.js,WebRoot/js/jquery-1.11.1.min.js
+validator.Unchecked=

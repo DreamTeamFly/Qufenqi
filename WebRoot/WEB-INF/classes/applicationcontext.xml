@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- 初步测试：配置和一个customerTable对象
+<bean id="customer" class="com.htl.domain.customerTable">
+<property name="name" value="test"/>
+</bean>
+ -->
+ 
+ 	<!-- 启用注解扫描 -->
+<context:annotation-config/>
+ 
+<!-- 配置数据源 -->
+   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+   		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+   		<property name="url" value="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=Qufenqi"></property>
+   		<property name="username" value="sa"></property>
+   		<property name="password" value="123"></property>
+   		<!-- 连接池启动时的初始值 -->
+   		<property name="initialSize" value="3"></property>
+   		<!-- 连接池的最大值 -->
+   		<property name="maxActive" value="500"></property>
+   		<!-- 最大空闲值 -->
+   		<property name="maxIdle" value="2"></property>
+   		<!-- 最小空闲值 -->
+   		<property name="minIdle" value="1"></property>
+   		
+   </bean>
+	<!-- 配置会话工厂() -->
+	<bean id="sessionFactory"  class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	     <!-- 设置数据源 -->
+	     <property name="dataSource" ref="dataSource"/>
+	     <!-- 接管了hibernate对象映射文件 -->
+	     <property name="mappingResources">
+		    <list>
+		      <value>com/htl/domain/CustomerTable.hbm.xml</value>
+		      <value>com/htl/domain/ShopTable.hbm.xml</value>
+		      <value>com/htl/domain/ProductTable.hbm.xml</value>
+		      <value>com/htl/domain/EmployeeTable.hbm.xml</value>
+		      
+		    </list>
+	     </property>
+	     <property name="hibernateProperties">
+		    <value>
+		        	hibernate.dialect=org.hibernate.dialect.SQLServerDialect
+		        	hibernate.hbm2ddl.auto=update
+					hibernate.show_sql=true
+					
+					hibernate.cache.use_second_level_cache=true
+        	    	hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
+        	    	hibernate.generate_statistics=true	 
+        	    	  
+		 </value>
+	    </property>
+	</bean>
+	
+	<!-- 配置PersonService对象 -->
+	<bean id="personServiceImp" class="com.htl.service.implementPerson.PersonServiceImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 配置action  , 由Spring接管Struts-->
+	<!-- 此处的name要与Struts文件中的action路径的名字一致 -->
+	<bean name="/login" scope="prototype" class="com.htl.web.action.CustomerAction">
+		<!-- 对该bean注入值，那么在UserLoginAction中就不需要再获取spring中的实例了 -->
+		<property name="inter" ref="personServiceImp"></property>
+	</bean>
+	<bean name="/customer" scope="prototype" class="com.htl.web.action.CustomerAction"> 
+		<property name="inter" ref="personServiceImp"></property>
+	</bean>
+	<bean name="/main" scope="prototype" class="com.htl.web.action.CustomerAction"> 
+		<property name="inter" ref="personServiceImp"></property>
+	</bean>
+	<bean name="/mainShopCenter" scope="prototype" class="com.htl.web.action.ShopCenterAction"> 
+		<property name="inter" ref="personServiceImp"></property>
+	</bean>
+	<bean name="/managerProduct" scope="prototype" class="com.htl.web.action.ShopCenterAction"> 
+		<property name="inter" ref="personServiceImp"></property>
+	</bean>
+	
+	
+	<!-- 配置事务管理器，统一管理sessionFactory的事务 -->
+	<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	  	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- 启用事务注解 -->
+	<tx:annotation-driven transaction-manager="txManager"/>
+	
+</beans>
